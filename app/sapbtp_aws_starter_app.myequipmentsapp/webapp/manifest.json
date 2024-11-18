@@ -1,0 +1,181 @@
+{
+  "_version": "1.60.0",
+  "sap.app": {
+    "id": "sapbtpawsstarterapp.myequipmentsapp",
+    "type": "application",
+    "i18n": "i18n/i18n.properties",
+    "applicationVersion": {
+      "version": "0.0.1"
+    },
+    "title": "{{appTitle}}",
+    "description": "{{appDescription}}",
+    "resources": "resources.json",
+    "sourceTemplate": {
+      "id": "@sap/generator-fiori:lrop",
+      "version": "1.15.4",
+      "toolsId": "ed697ca6-f11c-466c-aa30-5d9c86b2cfb9"
+    },
+    "dataSources": {
+      "mainService": {
+        "uri": "/service/sapbtp_aws_starter_appService/",
+        "type": "OData",
+        "settings": {
+          "annotations": [],
+          "odataVersion": "4.0"
+        }
+      }
+    },
+    "crossNavigation": {
+      "inbounds": {
+        "sapbtpawsstarterappmyequipment-display": {
+          "semanticObject": "sapbtpawsstarterappmyequipment",
+          "action": "display",
+          "title": "{{flpTitle}}",
+          "signature": {
+            "parameters": {},
+            "additionalParameters": "allowed"
+          }
+        }
+      }
+    }
+  },
+  "sap.ui": {
+    "technology": "UI5",
+    "icons": {
+      "icon": "",
+      "favIcon": "",
+      "phone": "",
+      "phone@2": "",
+      "tablet": "",
+      "tablet@2": ""
+    },
+    "deviceTypes": {
+      "desktop": true,
+      "tablet": true,
+      "phone": true
+    }
+  },
+  "sap.ui5": {
+    "flexEnabled": true,
+    "dependencies": {
+      "minUI5Version": "1.120.13",
+      "libs": {
+        "sap.m": {},
+        "sap.ui.core": {},
+        "sap.fe.templates": {}
+      }
+    },
+    "contentDensities": {
+      "compact": true,
+      "cozy": true
+    },
+    "models": {
+      "i18n": {
+        "type": "sap.ui.model.resource.ResourceModel",
+        "settings": {
+          "bundleName": "sapbtpawsstarterapp.myequipmentsapp.i18n.i18n"
+        }
+      },
+      "": {
+        "dataSource": "mainService",
+        "preload": true,
+        "settings": {
+          "operationMode": "Server",
+          "autoExpandSelect": true,
+          "earlyRequests": true
+        }
+      },
+      "@i18n": {
+        "type": "sap.ui.model.resource.ResourceModel",
+        "uri": "i18n/i18n.properties"
+      }
+    },
+    "resources": {
+      "css": [
+          {
+              "uri": "css/style.css"
+          }
+      ]
+  },
+    "routing": {
+      "config": {},
+      "routes": [
+        {
+          "pattern": ":?query:",
+          "name": "EquipmentDetailsList",
+          "target": "EquipmentDetailsList"
+        },
+        {
+          "pattern": "EquipmentDetails({key}):?query:",
+          "name": "EquipmentDetailsObjectPage",
+          "target": "EquipmentDetailsObjectPage"
+        },
+        {
+          "pattern": "EquipmentDetails({key})/orders({key2}):?query:",
+          "name": "MaintenanceOrderDetailsObjectPage",
+          "target": "MaintenanceOrderDetailsObjectPage"
+        }
+      ],
+      "targets": {
+        "EquipmentDetailsList": {
+          "type": "Component",
+          "id": "EquipmentDetailsList",
+          "name": "sap.fe.templates.ListReport",
+          "options": {
+            "settings": {
+              "contextPath": "/EquipmentDetails",
+              "variantManagement": "Page",
+              "navigation": {
+                "EquipmentDetails": {
+                  "detail": {
+                    "route": "EquipmentDetailsObjectPage"
+                  }
+                }
+              },
+              "controlConfiguration": {
+                "@com.sap.vocabularies.UI.v1.LineItem": {
+                  "tableSettings": {
+                    "type": "ResponsiveTable"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "EquipmentDetailsObjectPage": {
+          "type": "Component",
+          "id": "EquipmentDetailsObjectPage",
+          "name": "sap.fe.templates.ObjectPage",
+          "options": {
+            "settings": {
+              "editableHeaderContent": false,
+              "contextPath": "/EquipmentDetails",
+              "navigation": {
+                "orders": {
+                  "detail": {
+                    "route": "MaintenanceOrderDetailsObjectPage"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "MaintenanceOrderDetailsObjectPage": {
+          "type": "Component",
+          "id": "MaintenanceOrderDetailsObjectPage",
+          "name": "sap.fe.templates.ObjectPage",
+          "options": {
+            "settings": {
+              "editableHeaderContent": false,
+              "contextPath": "/EquipmentDetails/orders"
+            }
+          }
+        }
+      }
+    }
+  },
+  "sap.fiori": {
+    "registrationIds": [],
+    "archeType": "transactional"
+  }
+}
