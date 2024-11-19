@@ -154,6 +154,14 @@ This repository contains a sample SAP CAP (Cloud Application Programming Model) 
     - Select an equipment to view its maintenance orders.
     - Click the "Generate Summary" button to trigger the summary generation.
     - Check your configured SNS notification endpoint for the summary.
+
+4. **Generative AI Hub Access**:
+
+    - [Generative AI Hub](https://tfe-india-genai-9gqs3m10.ai-launchpad.prod.eu-central-1.aws.apps.ml.hana.ondemand.com/aic/index.html#/generativeaihub?workspace=ai-core-tfeindia-genai&resourceGroup=aws&/g/orchestration)
+    - Credentials:
+        -   User ID: user01@saptfe-demo.com 
+        -   Password will be shared separately
+
 ---
 
 This application is a reference implementation showcasing how SAP BTP services can be integrated with AWS services to create a comprehensive enterprise solution. Our goal is to provide our customers and partners with a clear understanding of leveraging these services together.
