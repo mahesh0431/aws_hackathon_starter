@@ -6,7 +6,7 @@ This repository contains a sample SAP CAP (Cloud Application Programming Model) 
 
 - **Equipment List Page**: Displays a list of equipment from SAP S/4HANA
 - **Maintenance Orders**: Shows maintenance orders for the selected equipment on the object page from SAP S/4HANA
-- **Summary Generation**: Option to generate and receive a summary of maintenance orders using SAP's Generative AI Hub orchestrating the Anthropoc Claude 3.5 Sonnet model and save to SAP HANA Cloud DB.
+- **Summary Generation**: Option to generate and receive a summary of maintenance orders using SAP's Generative AI Hub orchestrating the Anthropic Claude 3.5 Sonnet model and save to SAP HANA Cloud DB.
 - **SNS Notification**: Generated summary is sent as an SNS notification.
 
 ## Architecture
@@ -17,7 +17,7 @@ This repository contains a sample SAP CAP (Cloud Application Programming Model) 
 
 2. **SAP Generative AI Hub**:
     - Orchestrates requests to generative AI models.
-    - Uses the Anthropoc Claude 3.5 Sonnet model to generate summaries.
+    - Uses the Anthropic Claude 3.5 Sonnet model to generate summaries.
 
 3. **AWS Services**:
     - **SNS (Simple Notification Service)**: Facilitates sending notifications.
@@ -136,6 +136,9 @@ This repository contains a sample SAP CAP (Cloud Application Programming Model) 
     | HTML5.DynamicDestination    | true                                              |
     | WebIDEEnabled               | true                                              |
     | WebIDEUsage                 | odata_gen                                         |
+
+
+6. Update the .env file in the root folder. Replace XXXXX value in client ID and client secret with the values provided.
 
 ## Usage
 
