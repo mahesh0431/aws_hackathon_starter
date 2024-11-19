@@ -1,7 +1,7 @@
 # CAP sapbtp_aws_starter_app
 _out
 *.db
-*.sqlite
+*.sqlite*
 connection.properties
 default-*.json
 .cdsrc-private.json

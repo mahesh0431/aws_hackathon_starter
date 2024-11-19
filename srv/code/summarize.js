@@ -137,7 +137,7 @@ module.exports = async function (req, entities) {
         new PublishCommand({
             Message: result.getContent(),
             Subject: `Maintenance Order Summary for the Equipment: ${req.params[0].Equipment}`,
-            TopicArn: destination.originalProperties.TopicArn
+            TopicArn: destination.originalProperties.topicArn
         }),
     );
 
